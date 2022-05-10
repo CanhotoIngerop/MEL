@@ -8,7 +8,7 @@ export default {
   button: {
     position: "left",
     content: "free",
-    tooltip: "Let It Snow!",
+    tooltip: "Let It Be!",
     keepOpen: true,
     icon: {
       imgUri: icon,
