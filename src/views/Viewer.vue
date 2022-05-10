@@ -1,6 +1,8 @@
 <template>
   <div class="viewer">
-    <div :id="viewerId"></div>
+    <div :id="viewerId">
+      
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,9 @@ import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
 import buttonSelectAllPlugin from "../plugins/buttonSelectAll/src/buttonSelectAll.plugin";
+import bimobjectPlugin from "../plugins/bimobject/src/bimobject.plugin";
+import bimworldPlugin from "../plugins/bimworld/src/bimworld.plugin";
+import BimobjectVue from "../plugins/bimobject/src/Bimobject.vue";
 
 export default {
   data() {
@@ -49,8 +54,8 @@ export default {
           service: "BIMDATA",
         },
       },
-    });
-
+    }); 
+    
     bimdataViewer.registerPlugin(backgroundColor);
     bimdataViewer.registerPlugin(BimObjectPlugin);
     bimdataViewer.registerPlugin(bsdd);
