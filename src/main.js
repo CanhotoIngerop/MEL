@@ -7,10 +7,6 @@ import VueI18n from "vue-i18n";
 Vue.config.productionTip = false;
 Vue.use(VueI18n);
 
-//var coin = document.getElementById("data-v-7af18892");
-//alert(coin);
-
-
 const i18n = new VueI18n({
   locale: "en", // set locale
   messages: { en: {}, fr: {} }, // set locale messages
@@ -23,6 +19,17 @@ new Vue({
   render: h => h(App),
 }).$mount("#app");
 
+
+/*
+window.onload = function()
+{
+  $viewer.state.loadIfcs($viewer.state.objects);
+  $viewer.
+} 
+*/
+
+
+/*
 window.onload = function()
 {
   var coiin = document.getElementsByClassName("bimdata-tooltip");
@@ -33,7 +40,7 @@ window.onload = function()
     coiin[5].innerHTML += '<span class="bimdata-tooltip__text bimdata-tooltip--left bimdata-tooltip--primary bimdata-tooltip--arrow" data-v-4d16179f="" style="right: -68px; top: 8.5px;" >BCF - Annotation</span>';
     });
 }
-
+*/
 //var coiin = document.getElementsByClassName("button.bimdata-btn bimdata-btn__icon bimdata-btn__fill bimdata-btn__fill--default");
 //alert(coiin.length);
 
