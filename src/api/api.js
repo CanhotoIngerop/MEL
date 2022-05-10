@@ -8,5 +8,7 @@ export default function getClient({ accessToken, apiUrl }) {
   Bearer.type = "oauth2";
   Bearer.accessToken = accessToken;
 
+  console.log(bimdata);
+
   return bimdata;
 }
