@@ -7,7 +7,7 @@ const copydir = require("copy-dir");
 const inquirer = require("inquirer");
 const nunjucks = require("nunjucks");
 const isVarName = require("is-valid-var-name");
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 nunjucks.configure(__dirname + "/templates", { autoescape: true });
 
