@@ -1,7 +1,6 @@
 <template>
   <div class="viewer">
     <div :id="viewerId">
-      
     </div>
   </div>
 </template>
@@ -21,10 +20,8 @@ import platformDemo from "@/plugins/platformDemo/src/platformDemo.plugin.js";
 import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
-import buttonSelectAllPlugin from "../plugins/buttonSelectAll/src/buttonSelectAll.plugin";
-import bimobjectPlugin from "../plugins/bimobject/src/bimobject.plugin";
-import bimworldPlugin from "../plugins/bimworld/src/bimworld.plugin";
-import BimobjectVue from "../plugins/bimobject/src/Bimobject.vue";
+import Control_Panel from "@/plugins/Control_Panel/src/Control_Panel.plugin.js";
+import SimilarBCF_Button from "@/plugins/SimilarBCF_Button/src/SimilarBCF_Button.plugin.js";
 
 export default {
   data() {
@@ -55,7 +52,7 @@ export default {
         },
       },
     }); 
-    
+
     bimdataViewer.registerPlugin(backgroundColor);
     bimdataViewer.registerPlugin(BimObjectPlugin);
     bimdataViewer.registerPlugin(bsdd);
@@ -67,7 +64,8 @@ export default {
     bimdataViewer.registerPlugin(SnowflakesPlugin);
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
-    bimdataViewer.registerPlugin(buttonSelectAllPlugin);
+    bimdataViewer.registerPlugin(Control_Panel);
+    bimdataViewer.registerPlugin(SimilarBCF_Button);
 
     bimdataViewer.mount(`#${this.viewerId}`);
 

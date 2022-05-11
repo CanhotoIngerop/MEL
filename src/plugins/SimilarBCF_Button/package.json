@@ -1,13 +1,13 @@
 {
-  "name": "buttonSelectAll",
+  "name": "SimilarBCF_Button",
   "version": "0.0.1",
-  "description": "buttonSelectAll BIMData Viewer Plugin",
+  "description": "SimilarBCF_Button BIMData Viewer Plugin",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
     "watch": "rollup --watch -c",
     "prepublishOnly": "npm run build"
   },
-  "main": "dist/buttonSelectAll.plugin.js",
+  "main": "dist/SimilarBCF_Button.plugin.js",
   "files": [
     "dist"
   ],
@@ -15,7 +15,7 @@
     "BIMData",
     "Viewer",
     "Plugin",
-    "buttonSelectAll"
+    "SimilarBCF_Button"
   ],
   "dependencies": {},
   "devDependencies": {

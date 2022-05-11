@@ -1,22 +1,30 @@
 <template>
   <!-- https://vuejs.org/v2/guide/syntax.html -->
   <div>
+    <input type="button" value="Test" @click="OnClick">
+    <BIMDataPieSpinner />
   </div>
 </template>
 
 <script>
+import {
+  BIMDataPieSpinner,
+  } from "@bimdata/design-system/dist/js/BIMDataComponents/";
 export default {
   // https://vuejs.org/v2/guide/components.html
-  name: "buttonSelectAll",
-  async onOpen(){
-    window.alert("Executed");
+  name: "Control_Panel",
+  components: {
+    BIMDataPieSpinner,
   },
   data() {
     return {};
   },
-  created() {
+  created() {},
+  methods: {
+    OnClick(){
 
-  }
+    }
+  },
 };
 </script>
 

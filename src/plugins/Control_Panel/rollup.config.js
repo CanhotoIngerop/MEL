@@ -23,9 +23,9 @@ if (isProduction) {
 }
 
 export default {
-  input: 'src/buttonSelectAll.plugin.js',
+  input: 'src/Control_Panel.plugin.js',
   output: {
-    file: 'dist/buttonSelectAll.plugin.js',
+    file: 'dist/Control_Panel.plugin.js',
     format: 'esm',
     sourcemap: !isProduction,
   },
