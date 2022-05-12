@@ -4,37 +4,46 @@
     <div class="vueGlobale-plugin__header flex items-center">
       <span class="p-12">Vue Globale</span>
     </div>
-    <BIMDataTabs
-      :tabs="[
-        { id: 0, text: 'LOCALISATION', icon: 'ifc' },
-        { id: 1, text: 'CORPS D\'ETAT', icon: 'bcf' },
-        { id: 2, text: 'CALENDRIER', icon: 'user' },
-      ]"
-      width="100%"
-      height="40px"
-      tabSize="220px"
-      :selected="0"
-    >
-      <template #tab="{ tab }">
-        <span>{{ tab.text }}</span>
-      </template>
-    </BIMDataTabs>
+    <ul>
+      <li>
+        <button @click="activateTab('page1')">Tab 1</button>
+      </li>
+      <li>
+        <button @click="activateTab('page2')">Tab 2</button>
+      </li>
+    </ul>
+    <div id="tabCtrl">
+      <div id="page1" style="display: block;">Page 1</div>
+      <div id="page2" style="display: none;">Page 2</div>
+    </div>
   </div>
+
 </template>
 
 <script>
-import BIMDataTabs from "@bimdata/design-system/dist/js/BIMDataComponents/BIMDataTabs.js";
+
 export default {
   // https://vuejs.org/v2/guide/components.html
   name: "vueGlobale",
   components: {
-    BIMDataTabs,
   },
   data() {
     return {};
   },
   created() {},
-  methods: {},
+  methods: {
+    activateTab(pageId) {
+      console.log(pageId);
+      var tabCtrl = document.getElementById('tabCtrl');
+      var pageToActivate = document.getElementById(pageId);
+      for (var i = 0; i < tabCtrl.childNodes.length; i++) {
+        var node = tabCtrl.childNodes[i];
+        if (node.nodeType == 1) { /* Element */
+          node.style.display = (node == pageToActivate) ? 'block' : 'none';
+        }
+      }
+    }
+  },
 };
 </script>
 
@@ -46,10 +55,6 @@ export default {
   &__header {
     min-height: 44px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  &__menubar button{
-    min-height: 22px;
   }
 }
 /* https://vue-loader.vuejs.org/guide/scoped-css.html#mixing-local-and-global-styles */
