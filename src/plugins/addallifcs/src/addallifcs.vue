@@ -4,7 +4,9 @@
 </template>
 
 <script>
-export default {
+import getClient from "../../../api/api";
+
+export default { 
   // https://vuejs.org/v2/guide/components.html
   name: "addallifcs",
   data() {
@@ -13,15 +15,33 @@ export default {
   },
   async onOpen()
   {
-    return Promise.all(
-      [this.addAllIfcs()]
-    )
+    
+    var tempViewer = this.$viewer;
+    
+    var cloud = this.$viewer.api.cloudId;
+    var proj  = this.$viewer.api.projectId;
+
+    const ifcs = await new this.$viewer.api.apiClient.IfcApi().getIfcs(cloud, proj);
+
+    console.log(ifcs[0].id);
+
+    let tab = [];
+    
+    ifcs.forEach(element => {
+      tab.push(element.id);
+    });
+
+    this.$viewer.state.loadIfcs(tab);
+
   },
   created() {},
   methods: {
     addAllIfcs()
     {
-      $viewer.state.loadIfcs($viewer.state.objects);
+      //alert($viewer.state.objects);
+      const allIfcs = this.state.ifcs;
+      alert(allIfcs);
+      //$viewer.state.loadIfcs($viewer.state.objects);
     }
   },
 };

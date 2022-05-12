@@ -84,6 +84,7 @@ export default {
         accessToken: this.oidcAccessToken,
         apiUrl: process.env.VUE_APP_BIMDATA_API_URL,
       });
+      alert(this.oidcAccessToken);
       return new apiClient.IfcApi();
     },
   },
@@ -135,6 +136,7 @@ export default {
         this.selectedProject.id
       );
       this.fetchingIfcs = false;
+      //alert(this.selectedCloud);
     },
   },
 };
