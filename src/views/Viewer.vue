@@ -19,6 +19,8 @@ import platformDemo from "@/plugins/platformDemo/src/platformDemo.plugin.js";
 import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
+import Test from "@/plugins/test/src/test.plugin.js";
+import VueGlobale from "@/plugins/vueGlobale/src/vueGlobale.plugin.js";
 
 export default {
   data() {
@@ -61,6 +63,8 @@ export default {
     bimdataViewer.registerPlugin(SnowflakesPlugin);
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
+    bimdataViewer.registerPlugin(Test);
+    bimdataViewer.registerPlugin(VueGlobale);
 
     bimdataViewer.mount(`#${this.viewerId}`);
 
