@@ -1,4 +1,5 @@
 import addallifcsComponent from './addallifcs.vue';
+import icon from "../assets/logo-ifc.png"
 
 export default {
     name: "addallifcs",
@@ -7,7 +8,10 @@ export default {
     button: {
       position: "left",
       content: "free",
-      tooltip: "addallifcs, pour charger tous les ifcs d'un coup",
-      keepOpen: true,
+      tooltip: "Pour charger tous les ifcs d'un coup",
+      keepOpen: false,
+      icon: {
+        imgUri: icon,
+      }
     }
   };

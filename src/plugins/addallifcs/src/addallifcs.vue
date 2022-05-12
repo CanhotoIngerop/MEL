@@ -14,8 +14,7 @@ export default {
     };
   },
   async onOpen()
-  {
-    
+  {    
     var tempViewer = this.$viewer;
     
     var cloud = this.$viewer.api.cloudId;
