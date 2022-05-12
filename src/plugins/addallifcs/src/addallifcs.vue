@@ -33,6 +33,12 @@ export default {
 
     this.$viewer.state.loadIfcs(tab);
 
+    this.$close();
+
+  },
+  onClose()
+  {
+
   },
   created() {},
   methods: {
