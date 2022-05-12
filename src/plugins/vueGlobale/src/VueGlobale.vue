@@ -6,15 +6,32 @@
     </div>
     <ul>
       <li>
-        <button @click="activateTab('page1')">Tab 1</button>
+        <button @click="activateTab('localisation')">LOCALISATION</button>
+        <button @click="activateTab('etat')">COPRS D'ETAT</button>
+        <button>INDICE GRAVITE</button>
+        <button>AMIANTE</button>
       </li>
       <li>
-        <button @click="activateTab('page2')">Tab 2</button>
+        <button>INSPECTION</button>
+        <button>CR</button>
+        <button>HISTORIQUE</button>
+        <button @click="activateTab('calendrier')">CALENDRIER</button>
+        <button>INTERVENTION</button>
       </li>
     </ul>
+
     <div id="tabCtrl">
-      <div id="page1" style="display: block;">Page 1</div>
-      <div id="page2" style="display: none;">Page 2</div>
+      <div id="localisation" style="display: block;">
+        localisation ici
+      </div>
+
+      <div id="etat" style="display: none;">
+        Corps d'etat ici
+      </div>
+
+      <div id="calendrier" style="display: none;">
+        Calendrier ici
+      </div>
     </div>
   </div>
 
@@ -57,5 +74,7 @@ export default {
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   }
 }
+
+
 /* https://vue-loader.vuejs.org/guide/scoped-css.html#mixing-local-and-global-styles */
 </style>
