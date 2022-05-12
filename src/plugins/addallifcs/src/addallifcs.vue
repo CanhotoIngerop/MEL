@@ -23,8 +23,6 @@ export default {
 
     const ifcs = await new this.$viewer.api.apiClient.IfcApi().getIfcs(cloud, proj);
 
-    console.log(ifcs[0].id);
-
     let tab = [];
     
     ifcs.forEach(element => {
@@ -42,13 +40,6 @@ export default {
   },
   created() {},
   methods: {
-    addAllIfcs()
-    {
-      //alert($viewer.state.objects);
-      const allIfcs = this.state.ifcs;
-      alert(allIfcs);
-      //$viewer.state.loadIfcs($viewer.state.objects);
-    }
   },
 };
 </script>
