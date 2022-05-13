@@ -14,9 +14,6 @@ export default {
   },
   created() {},
   methods: {
-    CopyFromBfc(inputIfc){
-      window.open('mailto:vincent.canhotodossantos@ingerop.com');
-    }
   },
 };
 </script>

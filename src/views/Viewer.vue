@@ -8,7 +8,7 @@
 <script>
 import { mapGetters } from "vuex";
 import makeBIMDataViewer from "@bimdata/viewer";
-
+/*
 import backgroundColor from "@/plugins/backgroundColor/src/backgroundColor.plugin.js";
 import BimObjectPlugin from "@/plugins/bimobject/src/bimobject.plugin.js";
 import bsdd from "@/plugins/bsdd/src/bsdd.plugin.js";
@@ -21,6 +21,8 @@ import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
 import Control_Panel from "@/plugins/Control_Panel/src/Control_Panel.plugin.js";
+*/
+import addallifcs from "@/plugins/addallifcs/src/addallifcs.plugin.js";
 import SimilarBCF_Button from "@/plugins/SimilarBCF_Button/src/SimilarBCF_Button.plugin.js";
 
 export default {
@@ -53,6 +55,7 @@ export default {
       },
     }); 
 
+    /*
     bimdataViewer.registerPlugin(backgroundColor);
     bimdataViewer.registerPlugin(BimObjectPlugin);
     bimdataViewer.registerPlugin(bsdd);
@@ -65,6 +68,8 @@ export default {
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
     bimdataViewer.registerPlugin(Control_Panel);
+    */
+    bimdataViewer.registerPlugin(addallifcs);
     bimdataViewer.registerPlugin(SimilarBCF_Button);
 
     bimdataViewer.mount(`#${this.viewerId}`);
