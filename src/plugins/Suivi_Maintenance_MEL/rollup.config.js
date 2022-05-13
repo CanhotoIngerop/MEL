@@ -23,9 +23,9 @@ if (isProduction) {
 }
 
 export default {
-  input: 'src/test.plugin.js',
+  input: 'src/Suivi_Maintenance_MEL.plugin.js',
   output: {
-    file: 'dist/test.plugin.js',
+    file: 'dist/Suivi_Maintenance_MEL.plugin.js',
     format: 'esm',
     sourcemap: !isProduction,
   },

@@ -20,17 +20,37 @@
       </li>
     </ul>
 
+    
     <div id="tabCtrl">
+      <div class="mainDiv" id="localisation">
+        <div class="BarDiv">
+          <apexcharts class="BarGraph" height="350" type="bar" :options="chartOptionsBar" :series="seriesBarNonConform"></apexcharts>
+          <apexcharts class="BarGraph" height="350" type="bar" :options="chartOptionsBar" :series="seriesBarDesord"></apexcharts>
+        </div>
+        <div class="PieDiv" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+          <apexcharts class="PieGraph" style="width:50%;" type="pie" :options="chartOptions" :series="series"></apexcharts>
+          <apexcharts class="PieGraph" style="width:50%;" type="pie" :options="chartOptions" :series="series"></apexcharts>
+        
+        <button @click="getNiveau">
+          Show All</button>
+        </div>
+    
+      </div>
+      <!--
       <div id="localisation" style="display: block;">
         localisation ici
       </div>
-
+-->
       <div id="etat" style="display: none;">
         Corps d'etat ici
       </div>
 
       <div id="calendrier" style="display: none;">
-        Calendrier ici
+        <div class="text-center section">
+          <h2 class="h2">Calendrier</h2>
+          <Calendar :attributes='attrs'>
+          </Calendar>
+        </div>
       </div>
     </div>
   </div>
@@ -38,19 +58,144 @@
 </template>
 
 <script>
-
+import VueApexCharts from 'vue-apexcharts';
+import Calendar from 'v-calendar/lib/components/calendar.umd'
+import DatePicker from 'v-calendar/lib/components/date-picker.umd'
 export default {
+  
   // https://vuejs.org/v2/guide/components.html
   name: "vueGlobale",
   components: {
+    Calendar,
+    apexcharts: VueApexCharts,
   },
   data() {
-    return {};
+    const month = new Date().getMonth();
+    const year = new Date().getFullYear();
+    return {
+      series: [44, 55],
+      chartOptions: {
+        title:{
+          text: 'Part des objets présentant une non-conformité',
+        },
+        chart: {
+          margin:40,
+          width: 380,
+          type: 'pie',
+        },
+        labels: ['Non-conformité', 'Conformité'],
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+      },
+      seriesBarNonConform: [
+        {
+          name: 'Velux',
+          data: [44, 55, 41, 64, 22]
+        },
+        {
+          name: 'Volux',
+          data: [53, 32, 33, 52, 13]
+        },
+        {
+          name: 'Valux',
+          data: [74, 514, 54, 231, 82]
+        }
+      ],
+      seriesBarDesord: [
+        {
+          name: 'Velux',
+          data: [44, 55, 41, 64, 22]
+        },
+        {
+          name: 'Volux',
+          data: [53, 32, 33, 52, 13]
+        },
+        {
+          name: 'Valux',
+          data: [74, 514, 54, 231, 82]
+        }
+      ],
+
+      chartOptionsBar: {
+        chart: {
+          type: 'bar',
+          height: 430
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true,
+            dataLabels: {
+              position: 'top',
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          offsetX: -6,
+          style: {
+            fontSize: '12px',
+            colors: ['#666']
+          }
+        },
+        stroke: {
+          show: true,
+          width: 1,
+          colors: ['#fff']
+        },
+        tooltip: {
+          shared: true,
+          intersect: false
+        },
+        xaxis: {
+          categories: [],
+        },
+      },
+      attrs: [
+        {
+          key: 'today',
+          highlight: {
+            backgroundColor: '#ff8080',
+            // Other properties are available too, like `height` & `borderRadius`
+          },
+          dates: new Date(2018, 0, 1)
+        }
+      ],
+    }
   },
-  created() {},
+  created() {
+    this.getNiveau();
+  },
   methods: {
+    getNiveau(){
+      const loadedIfcs = this.$viewer.state.ifcs;
+      var niveaux = [];
+      
+      loadedIfcs.forEach(ifcelement => {
+        const apiClient = new this.$viewer.api.apiClient.IfcApi();
+        const storeys = apiClient.getStoreys(this.$viewer.api.cloudId,ifcelement.id,this.$viewer.api.projectId);
+        storeys.then((value) => {
+          value.forEach(element => {
+            if(!niveaux.includes(element.name))
+              niveaux.push(element.name);
+          });
+          this.chartOptionsBar = {
+            xaxis:{
+              categories: niveaux
+            }
+          }
+        })
+      });
+    },
     activateTab(pageId) {
-      console.log(pageId);
       var tabCtrl = document.getElementById('tabCtrl');
       var pageToActivate = document.getElementById(pageId);
       for (var i = 0; i < tabCtrl.childNodes.length; i++) {
@@ -65,6 +210,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.BarDiv{
+  margin: 0 0 0 0;
+}
+.BarGraph {
+  margin: 0px 60px 0 20px;
+}
+.PieGraph{
+  margin: 0px 60px 0 20px;
+}
+
+.PieDiv{
+  margin: 40px 0 0 0;
+}
+
+.mainDiv{
+  background-color: rgb(245, 245, 245 );
+  margin: 0px;
+}
 .vueGlobale-plugin {
   height: 100%;
   background-color: var(--color-white);
@@ -75,6 +238,58 @@ export default {
   }
 }
 
+.webkit-scrollbar {
+  width: 0px;
+}
+.webkit-scrollbar-track {
+  display: none;
+}
+.custom-calendar.vc-container {
+  --day-border: 1px solid #b8c2cc;
+  --day-border-highlight: 1px solid #b8c2cc;
+  --day-width: 90px;
+  --day-height: 90px;
+  --weekday-bg: #f8fafc;
+  --weekday-border: 1px solid #eaeaea;
+  border-radius: 0;
+  width: 100%;
+  & .vc-header {
+    background-color: #f1f5f8;
+    padding: 10px 0;
+  }
+  & .vc-weeks {
+    padding: 0;
+  }
+  & .vc-weekday {
+    background-color: var(--weekday-bg);
+    border-bottom: var(--weekday-border);
+    border-top: var(--weekday-border);
+    padding: 5px 0;
+  }
+  & .vc-day {
+    padding: 0 5px 3px 5px;
+    text-align: left;
+    height: var(--day-height);
+    min-width: var(--day-width);
+    background-color: white;
+    &.weekday-1,
+    &.weekday-7 {
+      background-color: #eff8ff;
+    }
+    &:not(.on-bottom) {
+      border-bottom: var(--day-border);
+      &.weekday-1 {
+        border-bottom: var(--day-border-highlight);
+      }
+    }
+    &:not(.on-right) {
+      border-right: var(--day-border);
+    }
+  }
+  & .vc-day-dots {
+    margin-bottom: 5px;
+  }
+}
 
 /* https://vue-loader.vuejs.org/guide/scoped-css.html#mixing-local-and-global-styles */
 </style>

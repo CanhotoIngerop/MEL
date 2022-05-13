@@ -19,8 +19,8 @@ import platformDemo from "@/plugins/platformDemo/src/platformDemo.plugin.js";
 import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
-import Test from "@/plugins/test/src/test.plugin.js";
 import VueGlobale from "@/plugins/vueGlobale/src/vueGlobale.plugin.js";
+import Suivi_Maintenance_MEL from "@/plugins/Suivi_Maintenance_MEL/src/Suivi_Maintenance_MEL.plugin.js";
 
 export default {
   data() {
@@ -63,8 +63,8 @@ export default {
     bimdataViewer.registerPlugin(SnowflakesPlugin);
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
-    bimdataViewer.registerPlugin(Test);
     bimdataViewer.registerPlugin(VueGlobale);
+    bimdataViewer.registerPlugin(Suivi_Maintenance_MEL);
 
     bimdataViewer.mount(`#${this.viewerId}`);
 

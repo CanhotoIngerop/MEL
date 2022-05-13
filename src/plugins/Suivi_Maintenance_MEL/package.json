@@ -1,13 +1,13 @@
 {
-  "name": "test",
+  "name": "Suivi_Maintenance_MEL",
   "version": "0.0.1",
-  "description": "test BIMData Viewer Plugin",
+  "description": "Suivi_Maintenance_MEL BIMData Viewer Plugin",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
     "watch": "rollup --watch -c",
     "prepublishOnly": "npm run build"
   },
-  "main": "dist/test.plugin.js",
+  "main": "dist/Suivi_Maintenance_MEL.plugin.js",
   "files": [
     "dist"
   ],
@@ -15,7 +15,7 @@
     "BIMData",
     "Viewer",
     "Plugin",
-    "test"
+    "Suivi_Maintenance_MEL"
   ],
   "dependencies": {},
   "devDependencies": {
