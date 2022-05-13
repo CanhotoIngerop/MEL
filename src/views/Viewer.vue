@@ -7,7 +7,6 @@
 <script>
 import { mapGetters } from "vuex";
 import makeBIMDataViewer from "@bimdata/viewer";
-
 import backgroundColor from "@/plugins/backgroundColor/src/backgroundColor.plugin.js";
 import BimObjectPlugin from "@/plugins/bimobject/src/bimobject.plugin.js";
 import bsdd from "@/plugins/bsdd/src/bsdd.plugin.js";
@@ -20,6 +19,8 @@ import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
 import windows_test from "@/plugins/windows_test/src/windows_test.plugin.js";
+import bcf_button from "@/plugins/bcf_button/src/bcf_button.plugin.js"
+import BCF_risques from "@/plugins/BCF_risques/src/BCF_risques.plugin.js"
 
 export default {
   data() {
@@ -63,6 +64,8 @@ export default {
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
     bimdataViewer.registerPlugin(windows_test);
+    bimdataViewer.registerPlugin(bcf_button);
+    bimdataViewer.registerPlugin(BCF_risques)
 
     bimdataViewer.mount(`#${this.viewerId}`);
 
