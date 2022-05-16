@@ -23,7 +23,7 @@
         <div>
         <h1 class="text-center">Gestion des risques</h1>
         <div id="flex-container">
-          <apexcharts class="flex-item" type="bar" :options="chartOptionsBar" :series="seriesBar"></apexcharts>
+          <apexcharts class="flex-item" type="line" :options="chartOptionsLine" :series="seriesBar"></apexcharts>
           <apexcharts class="flex-item" type="pie" :options="chartOptionsPie" :series="seriesPie"></apexcharts>
         </div>
         <div id="flex-container" class="text-center">
@@ -60,19 +60,19 @@ export default {
     const year = new Date().getFullYear();
     return {
 
-      chartOptionsBar: {
+      chartOptionsLine: {
         chart: {
           id: 'basic-bar'
         },
         title: {
-          text: 'Nombre de risques selon leur contexte',
-          align: 'center'
+          text: 'Mes interventions au cours de l\'année',
+          align: 'left'
         },
-        labels: ['Management de projet', 'Réglementaire', 'Voirie', 'Transport', 'Projets connexes', 'Environnement', 'Réseaux', 'Végétation', 'Travaux', 'Nivellement', 'Signalisation']
+        labels: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec']
       },
       seriesBar: [{
         name: 'series-bar',
-        data: [44, 55, 41, 17, 15, 23, 32, 53, 52, 63, 42]
+        data: [44, 55, 41, 17, 15, 23, 32, 53, 52, 63, 42, 23]
       }],
       chartOptionsPie: {
         chart: {
@@ -82,7 +82,8 @@ export default {
           text: 'Taux de gravité',
           align: 'center'
         },
-        labels: ['Haute', 'Moyenne', 'Faible']
+        labels: ['Haute', 'Moyenne', 'Faible', '<span style="font-size: x-large;">Total : 112<span>'],
+        colors: ['#FF3D1E', '#FF9100', '#7A7A7A'],
       },
       seriesPie: [44, 55, 13],
       attrs: [
