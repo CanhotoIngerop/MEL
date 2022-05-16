@@ -1,46 +1,26 @@
 <template>
   <!-- https://vuejs.org/v2/guide/syntax.html -->
   <div class="vueGlobale-plugin">
-    <div class="vueGlobale-plugin__header flex items-center">
-      <span class="p-12">Vue Globale</span>
-    </div>
     <ul>
       <li>
-        <button @click="activateTab('localisation')">LOCALISATION</button>
-
         <button @click="activateTab('globale')">VUE GLOBALE</button>
         <button @click="activateTab('perso')">VUE PERSONELLE</button>
       </li>
     </ul>
 
     
-    <div id="tabCtrl">
-      <div class="mainDiv" id="localisation">
-        <div class="BarDiv">
-          <apexcharts class="BarGraph" height="350" type="bar" :options="chartOptionsBar" :series="seriesBarNonConform"></apexcharts>
-          <apexcharts class="BarGraph" height="350" type="bar" :options="chartOptionsBar" :series="seriesBarDesord"></apexcharts>
-        </div>
-        <div class="PieDiv" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
-          <apexcharts class="PieGraph" style="width:50%;" type="pie" :options="chartOptions" :series="series"></apexcharts>
-          <apexcharts class="PieGraph" style="width:50%;" type="pie" :options="chartOptions" :series="series"></apexcharts>
-        
-        <button @click="getNiveau">
-          Show All</button>
-        </div>
-    
-      </div>
-
-      <div id="globale">
-        <div>
+    <div id="tabCtrl" >
+      <div id="globale" style="display: block;">
+        <div style="padding-top: 100px">
           <div id="chart"></div>
           <div id="chart_two"></div>
           <div id="chart_three"></div>
-          <p id="chart_two_total">55</p>
+          <p id="chart_two_total"></p>
         </div>
       </div>
 
-      <div id="perso">
-        <div style="padding-top: 10px">
+      <div id="perso" style="display: none;">
+        <div>
         <h1 class="text-center">Gestion des risques</h1>
         <div id="flex-container">
           <apexcharts class="flex-item" type="bar" :options="chartOptionsBar" :series="seriesBar"></apexcharts>
@@ -56,7 +36,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
@@ -66,7 +45,7 @@
 <script>
 import VueApexCharts from 'vue-apexcharts';
 import Calendar from 'v-calendar/lib/components/calendar.umd';
-import DatePicker from 'v-calendar/lib/components/date-picker.umd';
+import ApexCharts from 'apexcharts';
 
 export default {
   
@@ -116,135 +95,7 @@ export default {
           dates: new Date()
         }
       ],
-
-      series: [44, 55],
-      chartOptions: {
-        title:{
-          text: 'Part des objets présentant une non-conformité',
-        },
-        chart: {
-          margin:40,
-          width: 380,
-          type: 'pie',
-        },
-        labels: ['Non-conformité', 'Conformité'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
-      },
-      seriesBarNonConform: [
-        {
-          name: 'Velux',
-          data: [44, 55, 41, 64, 22]
-        },
-        {
-          name: 'Volux',
-          data: [53, 32, 33, 52, 13]
-        },
-        {
-          name: 'Valux',
-          data: [74, 514, 54, 231, 82]
-        }
-      ],
-      seriesBarDesord: [
-        {
-          name: 'Velux',
-          data: [44, 55, 41, 64, 22]
-        },
-        {
-          name: 'Volux',
-          data: [53, 32, 33, 52, 13]
-        },
-        {
-          name: 'Valux',
-          data: [74, 514, 54, 231, 82]
-        }
-      ],
-      masks: {
-        weekdays: 'WWW',
-      },
-      attributes: [
-        {
-          key: 1,
-          customData: {
-            title: "Contrôle",
-            class: "event",
-          },
-          dates: new Date(year, month, 1),
-        },
-        {
-          key: 2,
-          customData: {
-            title: "Visite",
-            class: "event",
-          },
-          dates: new Date(year, month, 2),
-        },
-        {
-          key: 3,
-          customData: {
-            title: "Visite",
-            class: "event",
-          },
-          dates: new Date(year, month, 5),
-        },
-        {
-          key: 4,
-          customData: {
-            title: "Contrôle",
-            class: "event",
-          },
-          dates: new Date(year, month, 5),
-        },
-        {
-          key: 4,
-          customData: {
-            title: "Contrôle",
-            class: "event",
-          },
-          dates: new Date(year, month, 7),
-        },
-        {
-          key: 5,
-          customData: {
-            title: "Visite",
-            class: "event",
-          },
-          dates: new Date(year, month, 11),
-        },
-        {
-          key: 6,
-          customData: {
-            title: "Réunion",
-            class: "event",
-          },
-          dates: { months: 5, ordinalWeekdays: { 2: 1 } },
-        },
-        {
-          key: 7,
-          customData: {
-            title: "Réunion",
-            class: "event",
-          },
-          dates: new Date(year, month, 22),
-        },
-        {
-          key: 8,
-          customData: {
-            title: "Réunion",
-            class: "event",
-          },
-          dates: new Date(year, month, 25),
-        },
-      ],
+       
       BCF_Low: 0,
       BCF_Medium: 0,
       BCF_High: 0,
@@ -252,32 +103,12 @@ export default {
     };
   },
   created() {
-    this.getNiveau();
+
   },
   mounted(){
     CreateDiagram();
   },
   methods: {
-    getNiveau(){
-      const loadedIfcs = this.$viewer.state.ifcs;
-      var niveaux = [];
-      
-      loadedIfcs.forEach(ifcelement => {
-        const apiClient = new this.$viewer.api.apiClient.IfcApi();
-        const storeys = apiClient.getStoreys(this.$viewer.api.cloudId,ifcelement.id,this.$viewer.api.projectId);
-        storeys.then((value) => {
-          value.forEach(element => {
-            if(!niveaux.includes(element.name))
-              niveaux.push(element.name);
-          });
-          this.chartOptionsBar = {
-            xaxis:{
-              categories: niveaux
-            }
-          }
-        })
-      });
-    },
     activateTab(pageId) {
       var tabCtrl = document.getElementById('tabCtrl');
       var pageToActivate = document.getElementById(pageId);
@@ -287,17 +118,18 @@ export default {
           node.style.display = (node == pageToActivate) ? 'block' : 'none';
         }
       }
-    },  
-    CreateDiagram(){
+    }
+  }
+};
+
+function CreateDiagram(){
       var chart = new ApexCharts(document.querySelector("#chart"), options);
       chart.render();
       var chart_two = new ApexCharts(document.querySelector("#chart_two"), options_two);
       chart_two.render();
       var chart_three = new ApexCharts(document.querySelector("#chart_three"), options_three);
       chart_three.render();
-    },  
-  }
-};
+    }
 
 var options = {
           series: [44, 55, 13],
@@ -443,52 +275,5 @@ var options_three = {
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-.BarDiv{
-  margin: 0 0 0 0;
-}
-.BarGraph {
-  margin: 0px 60px 0 20px;
-}
-.PieGraph{
-  margin: 0px 60px 0 20px;
-}
 
-.PieDiv{
-  margin: 40px 0 0 0;
-}
-
-.mainDiv{
-  background-color: rgb(245, 245, 245 );
-  margin: 0px;
-}
-.vueGlobale-plugin {
-  height: 100%;
-  background-color: var(--color-white);
-
-  &__header {
-    min-height: 44px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-  }
-}
-
-
-$day-border: 1px solid #b8c2cc;
-$day-border-highlight: 1px solid #b8c2cc;
-$day-width: 90px;
-$day-height: 90px;
-$weekday-bg: #f8fafc;
-$weekday-border: 1px solid #eaeaea;
-.scrollbar {
-  width: 0px;
-}
-.scrollbar-track {
-  display: none;
-}
-
-.event{
-  background: blue;
-  color: white;
-  width: 100px;
-  height: 50px;
-}
 </style>
