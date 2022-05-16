@@ -1,13 +1,13 @@
 {
-  "name": "@bimdata/snowflakes-viewer-plugin",
-  "version": "1.0.0",
-  "description": "snowflakes BIMData Viewer Plugin",
+  "name": "gestionrisques",
+  "version": "0.0.1",
+  "description": "GestionRisques BIMData Viewer Plugin",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
     "watch": "rollup --watch -c",
     "prepublishOnly": "npm run build"
   },
-  "main": "dist/snowflakes.plugin.js",
+  "main": "dist/GestionRisques.plugin.js",
   "files": [
     "dist"
   ],
@@ -15,8 +15,9 @@
     "BIMData",
     "Viewer",
     "Plugin",
-    "snowflakes"
+    "GestionRisques"
   ],
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@rollup/plugin-url": "^6.0.0",
