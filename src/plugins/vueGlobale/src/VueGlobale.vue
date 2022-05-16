@@ -72,8 +72,7 @@
             </template>
           </Calendar>
         </div>
-        <div id="detail-day">
-          
+        <div id="detail-day" class="detail-day"> 
         </div>
       </div>
     </div>
@@ -261,18 +260,30 @@ export default {
     },
     detail(attributes){
       var maDiv = document.getElementById('detail-day');
-      if (maDiv.hasChildNodes){
-        var children = maDiv.childNodes;
-        children.forEach((child)=>maDiv.removeChild(child));
+
+      // supprime les éléments de la div
+      var child = maDiv.lastElementChild;
+      while(child){
+        maDiv.removeChild(child)
+        child = maDiv.lastElementChild;
       }
+
+      // créer les balises dynamiquement
       attributes.forEach((attr)=>{
         var div = document.createElement('div');
         div.setAttribute('v-for', 'attr in attributes');
         div.setAttribute(':key', 'attr.key');
-        div.setAttribute('class', 'text-xs leading-tight rounded-sm p-1 mt-0 mb-1');
+        div.setAttribute('class', 'detail-div');
         div.setAttribute(':class', 'attr.customData.class');
-        div.textContent = attr.customData.description.toString();  
-        maDiv.appendChild(div)
+        var p = document.createElement('p');
+        p.setAttribute('class', 'detail-p');
+        p.textContent = attr.customData.description.toString();
+        div.appendChild(p);
+        var bouton = document.createElement('button');
+        bouton.setAttribute('class', 'detail-button');
+        bouton.textContent = 'Visualiser';
+        div.appendChild(bouton);
+        maDiv.appendChild(div);
       });
     }
   },
@@ -380,6 +391,15 @@ export default {
   & .fait{
     background-color: green;
     width: 100%;
+  }
+}
+
+::v-deep .detail-day{
+  width: 100%;
+  display: block;
+  .detail-div{
+    background-color: rgb(174, 223, 238);
+    display: flex;
   }
 }
 </style>
