@@ -20,10 +20,9 @@ import platformDemo from "@/plugins/platformDemo/src/platformDemo.plugin.js";
 import SnowflakesPlugin from "@/plugins/snowflakes/src/snowflakes.plugin.js";
 import SplitPlugin from "@/plugins/split/src/split.plugin.js";
 import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.js";
-import Control_Panel from "@/plugins/Control_Panel/src/Control_Panel.plugin.js";
 */
 import addallifcs from "@/plugins/addallifcs/src/addallifcs.plugin.js";
-import SimilarBCF_Button from "@/plugins/SimilarBCF_Button/src/SimilarBCF_Button.plugin.js";
+
 
 export default {
   data() {
@@ -67,10 +66,9 @@ export default {
     bimdataViewer.registerPlugin(SnowflakesPlugin);
     bimdataViewer.registerPlugin(SplitPlugin);
     bimdataViewer.registerPlugin(SvgExtractorPlugin);
-    bimdataViewer.registerPlugin(Control_Panel);
     */
     bimdataViewer.registerPlugin(addallifcs);
-    bimdataViewer.registerPlugin(SimilarBCF_Button);
+    
 
     bimdataViewer.mount(`#${this.viewerId}`);
 
