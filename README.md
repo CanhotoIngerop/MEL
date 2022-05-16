@@ -8,4 +8,4 @@ Jour 2 : Cette API est épouvantable, _[Envie d'une seule chose](https://www.you
 
 Jour 3 : La cavalerie arrive et le projet réduit ses offensives, [le moral du groupe](https://youtu.be/jsDToLObtpE?t=19) est au plus haut.
 
-Jour 4 : Le projet avance. Nous ne savons pas si nous réussirons à le finir à temps. Mais nous devons y arriver
+Jour 4 : Le projet avance. Nous ne savons pas si nous réussirons à le finir à temps. Mais nous devons y arriver, il en va de notre vie...
