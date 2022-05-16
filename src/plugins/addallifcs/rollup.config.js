@@ -23,9 +23,9 @@ if (isProduction) {
 }
 
 export default {
-  input: 'src/windows_test.plugin.js',
+  input: 'src/addallifcs.plugin.js',
   output: {
-    file: 'dist/windows_test.plugin.js',
+    file: 'dist/addallifcs.plugin.js',
     format: 'esm',
     sourcemap: !isProduction,
   },
