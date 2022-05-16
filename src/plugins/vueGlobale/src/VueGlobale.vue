@@ -56,9 +56,9 @@
             is-expanded
           >
             <template v-slot:day-content="{ day, attributes }">
-              <div class="vc-container flex flex-col h-full z-10 overflow-hidden" role="button" @click="detail(day.day)">
+              <div class="vc-container flex flex-col h-full z-10 overflow-hidden" role="button" @click="detail(attributes)">
                 <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
-                <div class="flex-grow overflow-y-auto overflow-x-auto ">
+                <div class="flex-grow overflow-y-auto overflow-x-auto">
                   <div
                     v-for="attr in attributes"
                     :key="attr.key"
@@ -72,7 +72,7 @@
             </template>
           </Calendar>
         </div>
-        <div class="detail-day">
+        <div id="detail-day">
           
         </div>
       </div>
@@ -259,8 +259,21 @@ export default {
         }
       }
     },
-    detail(key){
-      console.log(key);
+    detail(attributes){
+      var maDiv = document.getElementById('detail-day');
+      if (maDiv.hasChildNodes){
+        var children = maDiv.childNodes;
+        children.forEach((child)=>maDiv.removeChild(child));
+      }
+      attributes.forEach((attr)=>{
+        var div = document.createElement('div');
+        div.setAttribute('v-for', 'attr in attributes');
+        div.setAttribute(':key', 'attr.key');
+        div.setAttribute('class', 'text-xs leading-tight rounded-sm p-1 mt-0 mb-1');
+        div.setAttribute(':class', 'attr.customData.class');
+        div.textContent = attr.customData.description.toString();  
+        maDiv.appendChild(div)
+      });
     }
   },
 };
