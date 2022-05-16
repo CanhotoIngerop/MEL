@@ -1,13 +1,13 @@
 {
-  "name": "bcf_button",
+  "name": "gestionrisques",
   "version": "0.0.1",
-  "description": "bcf_button BIMData Viewer Plugin",
+  "description": "GestionRisques BIMData Viewer Plugin",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
     "watch": "rollup --watch -c",
     "prepublishOnly": "npm run build"
   },
-  "main": "dist/bcf_button.plugin.js",
+  "main": "dist/GestionRisques.plugin.js",
   "files": [
     "dist"
   ],
@@ -15,7 +15,7 @@
     "BIMData",
     "Viewer",
     "Plugin",
-    "bcf_button"
+    "GestionRisques"
   ],
   "dependencies": {},
   "devDependencies": {

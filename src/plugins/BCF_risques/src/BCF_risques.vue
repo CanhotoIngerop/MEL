@@ -132,7 +132,6 @@ img{
 </style>
 
 <script>
-import $ from "jquery";
 export default {
   // https://vuejs.org/v2/guide/components.html
   name: "BCF_risques",
@@ -141,19 +140,10 @@ export default {
   },
   created() {},
   mounted(){
-    CreateTitle();
-    CreateBCFList();
   },
   methods: {},
 };
 
-function CreateTitle(){
-  console.log("coucou");
-}
-
-function CreateBCFList(){
-  console.log("coucou2");
-}
 
 </script>
 

@@ -23,9 +23,9 @@ if (isProduction) {
 }
 
 export default {
-  input: 'src/bcf_button.plugin.js',
+  input: 'src/GestionRisques.plugin.js',
   output: {
-    file: 'dist/bcf_button.plugin.js',
+    file: 'dist/GestionRisques.plugin.js',
     format: 'esm',
     sourcemap: !isProduction,
   },

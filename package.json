@@ -26,6 +26,7 @@
     "oidc-client": "^1.11.5",
     "querystring": "^0.2.1",
     "require": "^0.4.4",
+    "v-calendar": "^2.4.1",
     "vue": "^2.6.14",
     "vue-apexcharts": "^1.6.2",
     "vue-chartjs": "^4.1.0",
