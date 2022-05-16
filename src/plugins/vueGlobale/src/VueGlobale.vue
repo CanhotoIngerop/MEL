@@ -56,7 +56,7 @@
             is-expanded
           >
             <template v-slot:day-content="{ day, attributes }">
-              <div class="vc-container flex flex-col h-full z-10 overflow-hidden">
+              <div class="vc-container flex flex-col h-full z-10 overflow-hidden" role="button" @click="detail(day.day)">
                 <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
                 <div class="flex-grow overflow-y-auto overflow-x-auto ">
                   <div
@@ -302,7 +302,7 @@ export default {
   display: none;
 }
 
-::v-deep .custom-calendar.vc-container {
+::v-deep .custom-calendar {
   --day-border: 1px solid #b8c2cc;
   --day-border-highlight: 1px solid #b8c2cc;
   --day-width: 90px;
@@ -310,8 +310,7 @@ export default {
   --weekday-bg: #f8fafc;
   --weekend-bg: #eff8ff;
   --weekday-border: 1px solid #eaeaea;
-  border-radius: 0;
-  width: 100%;
+  
   & .vc-header {
     background-color: #f1f5f8;
     padding: 10px 0;
@@ -338,6 +337,12 @@ export default {
         background-color: var(--weekend-bg);
       }
     }
+    .vc-container{
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+  }
     &:not(.on-bottom) {
       border-bottom: var(--day-border);
       &.weekday-1 {
@@ -361,7 +366,7 @@ export default {
   }
   & .fait{
     background-color: green;
+    width: 100%;
   }
-  
 }
 </style>
