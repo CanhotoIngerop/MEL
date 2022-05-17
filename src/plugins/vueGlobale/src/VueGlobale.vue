@@ -283,7 +283,7 @@ export default {
 
         // description
         var p = document.createElement('p');
-        p.setAttribute('class', 'detail-p');
+        p.setAttribute('class', attr.customData.class);
         p.textContent = attr.customData.description.toString();
         div.appendChild(p);
 
@@ -364,6 +364,7 @@ export default {
     height: var(--day-height);
     min-width: var(--day-width);
     background-color: white;
+    overflow-y: scroll;
     &.weekday-1,
     &.weekday-7 {
       background-color: var(--weekend-bg);
@@ -393,7 +394,7 @@ export default {
   }
 
   & .rappel{
-    background-color: yellow;
+    background-color: orange;
   }
   & .urgent{
     background-color: red;
@@ -405,15 +406,17 @@ export default {
 }
 
 ::v-deep .detail-day{
+  background-color: white;
   width: 100%;
-  display: block;
-  background-color: rgb(174, 223, 238);
+  display: inline;
   & .detail-div{
     display: flex;
+    background-color: inherit;
   }
 
   & p{
     margin-left: 10px;
+    font-size: medium;
   }
 
   & button{
@@ -421,8 +424,24 @@ export default {
   }
 
   & .detail-date{
-    margin-left: 10px;
-    font-size: large;
+    position: sticky;
+    left: 50%;
+    font-size:large;
+    color: black;
+  }
+
+  & .urgent{
+    color: red;
+  }
+
+  & .fait{
+    color: green;
+  }
+
+  & .rappel{
+    lighting-color: red;
+    color: orange;
+    
   }
 }
 </style>
