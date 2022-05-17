@@ -3,13 +3,13 @@
   <div class="vueGlobale-plugin">
     <ul>
       <li>
-        <button @click="activateTab('globale')">VUE GLOBALE</button>
-        <button @click="activateTab('perso')">VUE PERSONELLE</button>
+        <button @click="activateTab2('globale')">VUE GLOBALE</button>
+        <button @click="activateTab2('perso')">VUE PERSONELLE</button>
       </li>
     </ul>
 
     
-    <div id="tabCtrl" >
+    <div id="tabCtr1" >
       <div id="globale" style="display: block;">
         <div style="padding-top: 100px">
           <div id="chart"></div>
@@ -31,7 +31,21 @@
             <Calendar is-expanded :attributes='attrs'></Calendar>
           </div>
             <div class="flex-item" style="border: 3px green solid;">
-              BCF
+              <table id="BCFTable">
+                <td id="BCF-2" style="background-color: red;">
+                  <img src="https://i.imgur.com/uOopNTO.png">
+                  <p id="BCF-2-Name" style="top: -109%; left: 47%;">2. Poutre</p>
+                  <p id="BCF-2-DateTitle" style="top: -109%; left: 47%;">Crée le</p>
+                  <p id="BCF-2-Date" style="top: -120%; left: 44%;">15/05/2022</p>
+                  <p id="BCF-2-TypeTitle" style="top: -150%; left: 80%;">Type</p>
+                  <p id="BCF-2-Type" style="top: -161%; left: 75%;">Non précisé</p>
+                  <p id="BCF-2-PriorityTitle" style="top: -166%; left: 47%;">Priorité</p>
+                  <p id="BCF-2-Priority" style="top: -178%; left: 46%;">Haute</p>
+                  <p id="BCF-2-Status" style="top: -208%; background-color: rgb(203, 0, 0); border-radius: 30px; border-width: 1px 3px; border-style: solid; border-color: rgb(203, 0, 0); border-image: initial; width: 40px; left: 77%;">Fermé</p>
+                  <p id="BCF-2-AssignTitle" style="top: -205%; left: 60%;">Assigné à</p>
+                  <p id="BCF-2-Mail" style="top: -217%; left: 49%;">marine@ingerop.com</p>
+                </td>
+              </table>
             </div>
           </div>
         </div>
@@ -110,16 +124,16 @@ export default {
     CreateDiagram();
   },
   methods: {
-    activateTab(pageId) {
-      var tabCtrl = document.getElementById('tabCtrl');
+    activateTab2(pageId) {
+      var tabCtr1 = document.getElementById('tabCtr1');
       var pageToActivate = document.getElementById(pageId);
-      for (var i = 0; i < tabCtrl.childNodes.length; i++) {
-        var node = tabCtrl.childNodes[i];
+      for (var i = 0; i < tabCtr1.childNodes.length; i++) {
+        var node = tabCtr1.childNodes[i];
         if (node.nodeType == 1) { /* Element */
           node.style.display = (node == pageToActivate) ? 'block' : 'none';
         }
       }
-    }
+    },
   }
 };
 
@@ -231,6 +245,43 @@ var options_three = {
 </script>
 
 <style lang="scss" scoped>
+
+#Title-content{
+  font-size: 200%;
+  font-weight: bolder;
+}
+
+#BCFTable{
+  position: relative;
+  table-layout: fixed;
+  width: 100%;
+}
+
+#BCFTable tr, #BCFTable td{
+  border: 1px solid black;
+}
+
+#BCFTable p{
+  color: white;
+  position: relative;
+  display: flex;
+  font-size: 80%;
+}
+
+table td {
+    height: 115px;
+    width: 275px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+img{
+  width: 43.5%;
+  position: relative;
+  display: flex;
+}
+
 
 #flex-container {
   display: flex;

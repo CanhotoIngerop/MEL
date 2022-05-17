@@ -2,7 +2,7 @@
   <!-- https://vuejs.org/v2/guide/syntax.html -->
   <div>
     <div id="Title">
-      <p id="Title-content">3 Risques</p>
+      <p id="Title-content">4 Risques</p>
     </div>
     <table id="BCFTable">
     </table>
@@ -39,6 +39,7 @@
 
 #BCFTable tr, #BCFTable td{
   border: 1px solid black;
+  margin: 1px;
 }
 
 #BCFTable p{
@@ -50,7 +51,7 @@
 
 table td {
     height: 115px;
-    width: 33.3%;
+    width: 275px;
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
@@ -65,9 +66,7 @@ img{
 </style>
 
 <script>
-
 import $ from "jquery";
-
 export default {
   // https://vuejs.org/v2/guide/components.html
   name: "BCF_risques",
@@ -81,10 +80,12 @@ export default {
   methods: {},
 };
 
-let First_BCF = ['https://i.imgur.com/6kdEt7W.png', 'Poutre', '18/12/2020', 'Non précisé', 'Non précisé', 'Ouvert', 'maxime.jay@ingerop.com'];
-let Second_BCF = ['https://i.imgur.com/uOopNTO.png', 'Poutre', '15/05/2020', 'Non précisé', 'Haute', 'Fermé', 'marine@ingerop.com'];
-let Third_BCF = ['https://i.imgur.com/QhfQDmC.png', 'Poutre', '15/08/2020', 'Non précisé', 'Moyenne', 'Ouvert', 'anthony@ingerop.com'];
-let Thirdd_BCF = ['https://i.imgur.com/QhfQDmC.png', 'Poutre', '15/08/2020', 'Non précisé', 'Moyenne', 'Ouvert', 'anthony@ingerop.com'];
+let First_BCF = ['https://i.imgur.com/6kdEt7W.png', '1. Poutre', '18/12/2020', 'Non précisé', 'Non précisé', 'Ouvert', 'maxime.jay@ingerop.com'];
+let Second_BCF = ['https://i.imgur.com/uOopNTO.png', '2. Poutre', '15/05/2020', 'Non précisé', 'Haute', 'Fermé', 'marine@ingerop.com'];
+let Third_BCF = ['https://i.imgur.com/QhfQDmC.png', '3. Poutre', '15/08/2020', 'Non précisé', 'Moyenne', 'Ouvert', 'anthony@ingerop.com'];
+let Thirdd_BCF = ['https://i.imgur.com/QhfQDmC.png', '4. Poutre', '15/08/2020', 'Non précisé', 'Moyenne', 'Ouvert', 'anthony@ingerop.com'];
+
+
 
 
 let List = [First_BCF, Second_BCF, Third_BCF, Thirdd_BCF];
@@ -138,9 +139,10 @@ function CreateBCF(List_BCF, Number){
 function HandleCSS(Priority, Number, Number2){
   Number = Number + 1;
   Number2 = (Number2*3)-Number;
+  
   if(Priority=="Haute"){
     $("#BCF-"+Number).css("background-color", "#FF0000");
-    $("#BCF-"+Number+"-Status").css("top", "-21.7vh");
+    $("#BCF-"+Number+"-Status").css("top", "-208%");
     $("#BCF-"+Number+"-Status").css("background-color", "#CB0000");
     $("#BCF-"+Number+"-Status").css("border-radius", "30px");
     $("#BCF-"+Number+"-Status").css("border", "1px solid #CB0000");
@@ -149,7 +151,7 @@ function HandleCSS(Priority, Number, Number2){
   }
   if(Priority=="Moyenne"){
     $("#BCF-"+Number).css("background-color", "#FFB600");
-    $("#BCF-"+Number+"-Status").css("top", "-21.7vh");
+    $("#BCF-"+Number+"-Status").css("top", "-208%");
     $("#BCF-"+Number+"-Status").css("background-color", "#B78200");
     $("#BCF-"+Number+"-Status").css("border-radius", "30px");
     $("#BCF-"+Number+"-Status").css("border", "1px solid #B78200");
@@ -158,7 +160,7 @@ function HandleCSS(Priority, Number, Number2){
   }
   if(Priority=="Non précisé"){
     $("#BCF-"+Number).css("background-color", "#BABABA");
-    $("#BCF-"+Number+"-Status").css("top", "-21.7vh");
+    $("#BCF-"+Number+"-Status").css("top", "-208%");
     $("#BCF-"+Number+"-Status").css("background-color", "black");
     $("#BCF-"+Number+"-Status").css("border-radius", "30px");
     $("#BCF-"+Number+"-Status").css("border", "1px solid black");
@@ -168,67 +170,67 @@ function HandleCSS(Priority, Number, Number2){
   if(Number2==2){
     //BCF-1
     $("#BCF-"+Number+"-Status").css("left", "77%");
-    $("#BCF-"+Number+"-Name").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-Name").css("top", "-109%");
     $("#BCF-"+Number+"-Name").css("left", "47%");
-    $("#BCF-"+Number+"-DateTitle").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-DateTitle").css("top", "-109%");
     $("#BCF-"+Number+"-DateTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Date").css("top", "-12.6vh");
+    $("#BCF-"+Number+"-Date").css("top", "-120%");
     $("#BCF-"+Number+"-Date").css("left", "44%");
-    $("#BCF-"+Number+"-TypeTitle").css("top", "-16vh");
+    $("#BCF-"+Number+"-TypeTitle").css("top", "-150%");
     $("#BCF-"+Number+"-TypeTitle").css("left", "80%");
-    $("#BCF-"+Number+"-Type").css("top", "-17vh");
+    $("#BCF-"+Number+"-Type").css("top", "-161%");
     $("#BCF-"+Number+"-Type").css("left", "75%");
-    $("#BCF-"+Number+"-PriorityTitle").css("top", "-17.2vh");
+    $("#BCF-"+Number+"-PriorityTitle").css("top", "-166%");
     $("#BCF-"+Number+"-PriorityTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Priority").css("top", "-18.6vh");
+    $("#BCF-"+Number+"-Priority").css("top", "-178%");
     $("#BCF-"+Number+"-Priority").css("left", "46%");
-    $("#BCF-"+Number+"-AssignTitle").css("top", "-21.5vh");
+    $("#BCF-"+Number+"-AssignTitle").css("top", "-205%");
     $("#BCF-"+Number+"-AssignTitle").css("left", "60%");
-    $("#BCF-"+Number+"-Mail").css("top", "-22.8vh");
+    $("#BCF-"+Number+"-Mail").css("top", "-217%");
     $("#BCF-"+Number+"-Mail").css("left", "49%");
   }
   if(Number2==1){
     //BCF-2
     $("#BCF-"+Number+"-Status").css("left", "77%");
-    $("#BCF-"+Number+"-Name").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-Name").css("top", "-109%");
     $("#BCF-"+Number+"-Name").css("left", "47%");
-    $("#BCF-"+Number+"-DateTitle").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-DateTitle").css("top", "-109%");
     $("#BCF-"+Number+"-DateTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Date").css("top", "-12.6vh");
+    $("#BCF-"+Number+"-Date").css("top", "-120%");
     $("#BCF-"+Number+"-Date").css("left", "44%");
-    $("#BCF-"+Number+"-TypeTitle").css("top", "-16vh");
+    $("#BCF-"+Number+"-TypeTitle").css("top", "-150%");
     $("#BCF-"+Number+"-TypeTitle").css("left", "80%");
-    $("#BCF-"+Number+"-Type").css("top", "-17vh");
+    $("#BCF-"+Number+"-Type").css("top", "-161%");
     $("#BCF-"+Number+"-Type").css("left", "75%");
-    $("#BCF-"+Number+"-PriorityTitle").css("top", "-17.2vh");
+    $("#BCF-"+Number+"-PriorityTitle").css("top", "-166%");
     $("#BCF-"+Number+"-PriorityTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Priority").css("top", "-18.6vh");
+    $("#BCF-"+Number+"-Priority").css("top", "-178%");
     $("#BCF-"+Number+"-Priority").css("left", "46%");
-    $("#BCF-"+Number+"-AssignTitle").css("top", "-21.5vh");
+    $("#BCF-"+Number+"-AssignTitle").css("top", "-205%");
     $("#BCF-"+Number+"-AssignTitle").css("left", "60%");
-    $("#BCF-"+Number+"-Mail").css("top", "-22.8vh");
+    $("#BCF-"+Number+"-Mail").css("top", "-217%");
     $("#BCF-"+Number+"-Mail").css("left", "49%");
   }
   if(Number2==0){
     //BCF-3
     $("#BCF-"+Number+"-Status").css("left", "77%");
-    $("#BCF-"+Number+"-Name").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-Name").css("top", "-109%");
     $("#BCF-"+Number+"-Name").css("left", "47%");
-    $("#BCF-"+Number+"-DateTitle").css("top", "-11.5vh");
+    $("#BCF-"+Number+"-DateTitle").css("top", "-109%");
     $("#BCF-"+Number+"-DateTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Date").css("top", "-12.6vh");
+    $("#BCF-"+Number+"-Date").css("top", "-120%");
     $("#BCF-"+Number+"-Date").css("left", "44%");
-    $("#BCF-"+Number+"-TypeTitle").css("top", "-16vh");
+    $("#BCF-"+Number+"-TypeTitle").css("top", "-150%");
     $("#BCF-"+Number+"-TypeTitle").css("left", "80%");
-    $("#BCF-"+Number+"-Type").css("top", "-17vh");
+    $("#BCF-"+Number+"-Type").css("top", "-161%");
     $("#BCF-"+Number+"-Type").css("left", "75%");
-    $("#BCF-"+Number+"-PriorityTitle").css("top", "-17.2vh");
+    $("#BCF-"+Number+"-PriorityTitle").css("top", "-166%");
     $("#BCF-"+Number+"-PriorityTitle").css("left", "47%");
-    $("#BCF-"+Number+"-Priority").css("top", "-18.6vh");
+    $("#BCF-"+Number+"-Priority").css("top", "-178%");
     $("#BCF-"+Number+"-Priority").css("left", "46%");
-    $("#BCF-"+Number+"-AssignTitle").css("top", "-21.5vh");
+    $("#BCF-"+Number+"-AssignTitle").css("top", "-205%");
     $("#BCF-"+Number+"-AssignTitle").css("left", "60%");
-    $("#BCF-"+Number+"-Mail").css("top", "-22.8vh");
+    $("#BCF-"+Number+"-Mail").css("top", "-217%");
     $("#BCF-"+Number+"-Mail").css("left", "49%");
   }
 }
