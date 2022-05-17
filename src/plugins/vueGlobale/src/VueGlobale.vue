@@ -56,7 +56,7 @@
             is-expanded
           >
             <template v-slot:day-content="{ day, attributes }">
-              <div class="vc-container flex flex-col h-full z-10 overflow-hidden" role="button" @click="detail(attributes)">
+              <div class="vc-container flex flex-col h-full z-10 overflow-hidden" role="button" @click="detail(day, attributes)">
                 <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
                 <div class="flex-grow overflow-y-auto overflow-x-auto">
                   <div
@@ -258,7 +258,7 @@ export default {
         }
       }
     },
-    detail(attributes){
+    detail(day, attributes){
       var maDiv = document.getElementById('detail-day');
 
       // supprime les éléments de la div
@@ -268,6 +268,11 @@ export default {
         child = maDiv.lastElementChild;
       }
 
+      var date = document.createElement('span');
+      date.setAttribute('class', 'detail-date');
+      date.textContent = day.day+'/'+day.month+'/'+ day.year;
+      maDiv.appendChild(date);
+
       // créer les balises dynamiquement
       attributes.forEach((attr)=>{
         var div = document.createElement('div');
@@ -275,14 +280,19 @@ export default {
         div.setAttribute(':key', 'attr.key');
         div.setAttribute('class', 'detail-div');
         div.setAttribute(':class', 'attr.customData.class');
+
+        // description
         var p = document.createElement('p');
         p.setAttribute('class', 'detail-p');
         p.textContent = attr.customData.description.toString();
         div.appendChild(p);
+
+        // bouton
         var bouton = document.createElement('button');
         bouton.setAttribute('class', 'detail-button');
         bouton.textContent = 'Visualiser';
         div.appendChild(bouton);
+
         maDiv.appendChild(div);
       });
     }
@@ -397,9 +407,22 @@ export default {
 ::v-deep .detail-day{
   width: 100%;
   display: block;
-  .detail-div{
-    background-color: rgb(174, 223, 238);
+  background-color: rgb(174, 223, 238);
+  & .detail-div{
     display: flex;
+  }
+
+  & p{
+    margin-left: 10px;
+  }
+
+  & button{
+    margin-left: 10px;
+  }
+
+  & .detail-date{
+    margin-left: 10px;
+    font-size: large;
   }
 }
 </style>
