@@ -8,7 +8,7 @@ export default {
   button: {
     position: "left",
     content: "free",
-    tooltip: "Christmas sleigh",
+    tooltip: "Père Noël !",
     keepOpen: true,
     icon: {
       imgUri: icon,

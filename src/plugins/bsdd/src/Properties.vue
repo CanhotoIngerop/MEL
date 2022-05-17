@@ -209,7 +209,7 @@ export default {
   data() {
     return {
       selectedClass: null,
-      header: ["Update", "PSet", "Name", "Value", "Current Value", "BCF"],
+      header: ["Update", "PSet", "Name", "Value", "Current Value", "BCF - Annotation"],
       rows: [],
       displayedElement: {},
       displayedElementDetails: {},
