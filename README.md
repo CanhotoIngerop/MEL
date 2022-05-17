@@ -13,3 +13,5 @@ Jour 4 : Le projet avance. Nous ne savons pas si nous réussirons à le finir à
 Jour 5 : L'équipe part en week-end la tête dans les étoiles.
 
 Jour 6 : Dernière ligne droite du projet. Il devient de plus en plus réalisable. Peut-être que nous surviverons ?
+
+Jour 7 : L'impossible leur a été demandé, et pourtant ils l'ont fait !
