@@ -340,7 +340,7 @@ var options_three = {
 ::v-deep .custom-calendar {
   --day-border: 1px solid #b8c2cc;
   --day-border-highlight: 1px solid #b8c2cc;
-  --day-width: 60px;
+  --day-width: 80px;
   --day-height: 60px;
   --weekday-bg: #f8fafc;
   --weekend-bg: #eff8ff;
