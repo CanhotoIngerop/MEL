@@ -28,7 +28,29 @@
         </div>
         <div id="flex-container" class="text-center">
           <div id="calendrier" class="flex-item">
-            <Calendar is-expanded :attributes='attrs'></Calendar>
+            <Calendar
+            class="custom-calendar max-w-full"
+            :masks="masks"
+            :attributes="attributes"
+            disable-page-swipe
+            is-expanded
+          >
+            <template v-slot:day-content="{ day, attributes }">
+              <div class="vc-container flex flex-col h-full z-10 overflow-hidden">
+                <span class="day-label text-sm text-gray-900">{{ day.day }}</span>
+                <div class="flex-grow overflow-y-auto overflow-x-auto">
+                  <div
+                    v-for="attr in attributes"
+                    :key="attr.key"
+                    class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1"
+                    :class="attr.customData.class"
+                  >
+                    {{ attr.customData.title }}
+                  </div>
+                </div>
+              </div>
+            </template>
+          </Calendar>
           </div>
             <div class="flex-item" style="border: 3px green solid;">
               BCF
@@ -100,7 +122,45 @@ export default {
       BCF_Low: 0,
       BCF_Medium: 0,
       BCF_High: 0,
-      
+
+      attributes: [
+        {
+          key: 1,
+          customData: {
+            title: "rappel",
+            class: "rappel",
+            description: "Controle prévu le 16/05/2022",
+          },
+          dates: new Date(year, month, 2),
+        },
+        {
+          key: 2,
+          customData: {
+            title: "Contrôle",
+            class: "urgent",
+            description: "Visite sur le chantier de Ladoux",
+          },
+          dates: new Date(year, month, 16),
+        },
+        {
+          key: 3,
+          customData: {
+            title: "conforme",
+            class: "fait",
+            description: "escalier mécanique conforme",
+          },
+          dates: new Date(year, month, 5),
+        },
+        {
+          key: 4,
+          customData: {
+            title: "rappel",
+            class: "rappel",
+            description: "Controle prévu le 30/05/2022",
+          },
+          dates: new Date(year, month, 16),
+        },
+      ],
     };
   },
   created() {
@@ -275,6 +335,75 @@ var options_three = {
   left: 70%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+::v-deep .custom-calendar {
+  --day-border: 1px solid #b8c2cc;
+  --day-border-highlight: 1px solid #b8c2cc;
+  --day-width: 60px;
+  --day-height: 60px;
+  --weekday-bg: #f8fafc;
+  --weekend-bg: #eff8ff;
+  --weekday-border: 1px solid #eaeaea;
+  
+  & .vc-header {
+    background-color: #f1f5f8;
+    padding: 10px 0;
+  }
+  & .vc-weeks {
+    padding: 0;
+  }
+  & .vc-weekday {
+    background-color: var(--weekday-bg);
+    border-bottom: var(--weekday-border);
+    border-top: var(--weekday-border);
+    padding: 5px 0;
+  }
+  & .vc-day {
+    padding: 0 5px 3px 5px;
+    text-align: left;
+    height: var(--day-height);
+    min-width: var(--day-width);
+    background-color: white;
+    overflow-y: scroll;
+    &.weekday-1,
+    &.weekday-7 {
+      background-color: var(--weekend-bg);
+      & .day-label{
+        background-color: var(--weekend-bg);
+      }
+    }
+    .vc-container{
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+  }
+    &:not(.on-bottom) {
+      border-bottom: var(--day-border);
+      &.weekday-1 {
+        border-bottom: var(--day-border-highlight);
+      }
+    }
+    &:not(.on-right) {
+      border-right: var(--day-border);
+    }
+    
+  }
+  & .vc-day-dots {
+    margin-bottom: 5px;
+  }
+
+  & .rappel{
+    background-color: orange;
+  }
+  & .urgent{
+    background-color: red;
+  }
+  & .fait{
+    background-color: green;
+    width: 100%;
+  }
 }
 
 </style>
