@@ -19,6 +19,7 @@ import SvgExtractorPlugin from "@/plugins/svgExtractor/src/svgExtractor.plugin.j
 import BCF_risques from "@/plugins/BCF_risques/src/BCF_risques.plugin.js";
 import GestionRisques from "@/plugins/GestionRisques/src/GestionRisques.plugin.js";
 import addallifcs from "../plugins/addallifcs/src/addallifcs.plugin.js";
+import VueGlobale from "@/plugins/vueGlobale/src/vueGlobale.plugin.js";
 
 export default {
   data() {
@@ -62,6 +63,7 @@ export default {
     bimdataViewer.registerPlugin(BCF_risques);
     bimdataViewer.registerPlugin(GestionRisques);
     bimdataViewer.registerPlugin(addallifcs);
+    bimdataViewer.registerPlugin(VueGlobale);
 
     bimdataViewer.mount(`#${this.viewerId}`);
 
